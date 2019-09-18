@@ -16,7 +16,7 @@ namespace goproxy_helper
 {
     public partial class main : Form
     {
-        private static string serviceName="ProxyFreeAdmin";
+        private static string serviceName= "ProxyAdminFree";
         private static string binName = "proxy-admin-free";
         private static string titleType = "社区版";
         public main()
@@ -158,7 +158,7 @@ namespace goproxy_helper
                 MessageBox.Show("服务未安装！");
                 return;
             }**/
-            exec("explorer.exe", "C:\\gpfa", true, false,false);
+            exec("explorer.exe", "C:\\gpaf", true, false,false);
         }
 
         private void button4_Click(object sender, EventArgs e)

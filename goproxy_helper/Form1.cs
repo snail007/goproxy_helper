@@ -192,5 +192,35 @@ namespace goproxy_helper
         {
             MessageBox.Show("太难了，最近压力很大");
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!Service.Exists(serviceName))
+            {
+                MessageBox.Show("服务未安装！");
+                return;
+            }
+            if (!Service.IsRunning(serviceName))
+            {
+                MessageBox.Show("服务未启动！");
+                return;
+            }
+            MessageBox.Show(Service.Stop(serviceName) ? "停止成功" : "停止失败");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (!Service.Exists(serviceName))
+            {
+                MessageBox.Show("服务未安装！");
+                return;
+            }
+            if (Service.IsRunning(serviceName))
+            {
+                MessageBox.Show("服务运行中！");
+                return;
+            }
+            MessageBox.Show(Service.Start(serviceName) ? "启动成功" : "启动失败");
+        }
     }
 }

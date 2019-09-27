@@ -16,19 +16,12 @@ namespace goproxy_helper
 {
     public partial class main : Form
     {
-        private static string serviceName= "ProxyAdminFree";
-        private static string binName = "proxy-admin-free";
+        private static string serviceName= "proxyadmin";
+        private static string binName = "proxy-admin";
         private static string titleType = "社区版";
         public main()
         {
             InitializeComponent();
-            if (File.Exists("proxy-admin"))
-            {
-                binName = "proxy-admin";
-                serviceName = "ProxyAdmin";
-                titleType = "商业版";
-               
-            }
             this.Text += " " + titleType;
         }
 
@@ -158,7 +151,7 @@ namespace goproxy_helper
                 MessageBox.Show("服务未安装！");
                 return;
             }**/
-            exec("explorer.exe", "C:\\gpaf", true, false,false);
+            exec("explorer.exe", "C:\\gpa", true, false,false);
         }
 
         private void button4_Click(object sender, EventArgs e)

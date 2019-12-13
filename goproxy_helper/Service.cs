@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
 namespace goproxy_helper
-{ 
+{
     internal class Service
     {
         //监测服务是否启动 
@@ -25,6 +25,7 @@ namespace goproxy_helper
             catch (Exception ex)
             {
                 return false;
+                throw ex;
             }
         }
 
@@ -63,19 +64,21 @@ namespace goproxy_helper
             catch (Exception ex)
             {
                 return false;
+                throw ex;
             }
             return isbn;
         }
-        public static bool IsRunning(string serviceName) {
-                if (Exists(serviceName))
+        public static bool IsRunning(string serviceName)
+        {
+            if (Exists(serviceName))
+            {
+                ServiceController star_service = new ServiceController(serviceName);
+                if (star_service.Status == ServiceControllerStatus.Running)
                 {
-                    ServiceController star_service = new ServiceController(serviceName);
-                    if (star_service.Status == ServiceControllerStatus.Running)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-                return false;
+            }
+            return false;
         }
         //停止服务 
         public static bool Stop(string serviceName)
@@ -111,6 +114,7 @@ namespace goproxy_helper
             catch (Exception ex)
             {
                 return false;
+                throw ex;
             }
             return isbn;
         }

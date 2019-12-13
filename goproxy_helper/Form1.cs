@@ -18,7 +18,7 @@ namespace goproxy_helper
     {
         private static string serviceName = "proxyadmin";
         private static string binName = "proxy-admin";
-        private static string titleType = "社区版-雅黑版";
+        private static string titleType = "社区版";
         public main()
         {
             InitializeComponent();
